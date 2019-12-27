@@ -14,7 +14,7 @@ public class MainMenu : MonoBehaviourPunCallbacks
     [SerializeField] private InputField nameInputField = null;
 
     //const vals
-    private const string GameVersion = "0.1";
+    private const string GameVersion = "0.2";
     private const int MaxPlayersPerRoom = 2;
     private const string PlayerPrefsNameKey = "PlayerName";
 
@@ -27,10 +27,18 @@ public class MainMenu : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        DebugResolutionChange();
         PhotonNetwork.AutomaticallySyncScene = true;
         DontDestroyOnLoad(this);
         isHost = false;
         SetUpNickname();
+    }
+    void DebugResolutionChange()
+    {
+        if (!Application.isEditor)
+        {
+            Screen.SetResolution(1280, 720, false);
+        }
     }
     public void StartOffline()
     {
