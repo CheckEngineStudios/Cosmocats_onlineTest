@@ -32,3 +32,4 @@ sysinfo.txt
 
 #don't ignore dlls you stupid fuck
 !*.dll
+Assets/Photon/PhotonUnityNetworking/Resources/PhotonServerSettings.asset
